@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useEffect, useState } from "react";
 import { supabase, variaveisConfiguradas } from "@/lib/supabase";
 
@@ -37,12 +38,16 @@ export default function Inicio() {
   return (
     <div className="space-y-5">
       <section className="cartao">
-        <h1 className="text-2xl font-bold">Sistema de escala, pronto para construir</h1>
-        <p className="mt-2 text-neutral-700">
-          Este é o ponto de partida. A estrutura, o banco de dados e a publicação já
-          estão configurados. As telas da escala serão criadas por você, com a IA,
-          durante a aula.
-        </p>
+        <h1 className="text-2xl font-bold">Escala da equipe</h1>
+        <p className="mt-1 text-neutral-700">Escolha o que você quer fazer.</p>
+        <div className="mt-4 grid gap-3 sm:grid-cols-2">
+          <Link href="/escala" className="botao py-5 text-lg">
+            Escala da semana
+          </Link>
+          <Link href="/equipe" className="botao-secundario py-5 text-lg">
+            Equipe
+          </Link>
+        </div>
       </section>
 
       <section className="cartao">
@@ -64,7 +69,7 @@ export default function Inicio() {
         {estado.tipo === "ok" && (
           <p className="mt-2 text-green-700">
             Banco conectado. {estado.funcionarios} funcionários e {estado.turnos} turnos
-            cadastrados. Tudo pronto para a Entrega 1.
+            cadastrados.
           </p>
         )}
       </section>
